@@ -4,10 +4,12 @@ M=/home/eax/work/postgrespro/postgresql-install
 U=`whoami`
 
 pkill -9 postgres
+
+rm -rf $M
+mkdir $M
+
 make install
 
-rm -rf $M/data-master
-rm -rf $M/data-slave
 $M/bin/initdb -D $M/data-master
 
 echo "listen_addresses = '127.0.0.1'" >> $M/data-master/postgresql.conf
