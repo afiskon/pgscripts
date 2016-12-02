@@ -5,4 +5,4 @@ CFLAGS="-O0" ./configure --prefix=/home/eax/work/postgrespro/postgresql-install 
   echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-' && \
   make -s -j4 && \
   echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-' && \
-  make check
+  make check-world
