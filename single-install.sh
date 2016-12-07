@@ -1,29 +1,41 @@
 #!/usr/bin/env bash
 
-P=/home/eax/work/postgrespro/postgresql-install
+set -e
 
-pkill -9 postgres
+M=/home/eax/work/postgrespro/postgresql-install
+U=`whoami`
+
+pkill -9 postgres || true
+
+rm -rf $M || true
+mkdir $M
+
 make install
 
-rm -rf $P/data
-$P/bin/initdb -D $P/data
+$M/bin/initdb -D $M/data-master
 
-echo "max_prepared_transactions = 100" >> $P/data/postgresql.conf
-echo "wal_level = hot_standby" >> $P/data/postgresql.conf
-echo "wal_keep_segments = 128" >> $P/data/postgresql.conf
-echo "max_connections = 10" >> $P/data/postgresql.conf
-echo "listen_addresses = '*'" >> $P/data/postgresql.conf
-#echo "shared_buffers = 1GB" >> $P/data/postgresql.conf
-#echo "fsync = off" >> $P/data/postgresql.conf
-#echo "autovacuum = off" >> $P/data/postgresql.conf
+echo "listen_addresses = '127.0.0.1'" >> $M/data-master/postgresql.conf
+echo "max_prepared_transactions = 100" >> $M/data-master/postgresql.conf
+echo "wal_level = hot_standby" >> $M/data-master/postgresql.conf
+echo "wal_keep_segments = 128" >> $M/data-master/postgresql.conf
+echo "max_connections = 10" >> $M/data-master/postgresql.conf
+echo "wal_log_hints = on" >> $M/data-master/postgresql.conf
+echo "max_wal_senders = 8" >> $M/data-master/postgresql.conf
+echo "wal_keep_segments = 64" >> $M/data-master/postgresql.conf
+echo "listen_addresses = '*'" >> $M/data-master/postgresql.conf
+echo "hot_standby = on" >> $M/data-master/postgresql.conf
+echo "log_statement = all" >> $M/data-master/postgresql.conf
+#echo "shared_buffers = 1GB" >> $M/data-master/postgresql.conf
+#echo "fsync = off" >> $M/data-master/postgresql.conf
+#echo "autovacuum = off" >> $M/data-master/postgresql.conf
 
-echo '' > $P/data/logfile
+echo "host replication $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
+echo "host all $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
 
-echo "host all all 0.0.0.0/0 trust" >> $P/data/pg_hba.conf
-echo "host replication all 0.0.0.0/0 trust" >> $P/data/pg_hba.conf
-echo "local replication all trust" >> $P/data/pg_hba.conf
+echo '' > $M/data-master/logfile
 
-$P/bin/pg_ctl -w -D $P/data -l $P/data/logfile start
-$P/bin/createdb `whoami`
-$P/bin/psql -c "create table test(k int primary key, v text);"
+$M/bin/pg_ctl -w -D $M/data-master -l $M/data-master/logfile start
+$M/bin/createdb $U
+$M/bin/psql -c "create table test(k int primary key, v text);"
+
 
