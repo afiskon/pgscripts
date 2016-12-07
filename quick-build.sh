@@ -15,4 +15,4 @@ make -s -j4
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
-make check-world
+make check
