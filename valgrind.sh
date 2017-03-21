@@ -39,6 +39,8 @@ echo '!!!'
 echo '!!! Hint: after PostgreSQL will start run `make installcheck` or '
 echo '!!! `make installcheck-tests TESTS="password jsonb"` in the second terminal'
 echo '!!!'
+echo '!!! And make sure USE_VALGRIND is defined in src/include/pg_config_manual.h'
+echo '!!!'
 
 #  --log-file=$HOME/work/postgrespro/postgresql-valgrind/%p.log \
 #  --vgdb=yes --vgdb-error=1 \
