@@ -36,25 +36,13 @@ echo '' > $M/data-master/logfile
 rm $HOME/work/postgrespro/postgresql-valgrind/*.log || true
 
 echo '!!!'
-echo '!!! Hint: after PostgreSQL will start run `make installcheck` in the second terminal'
+echo '!!! Hint: after PostgreSQL will start run `make installcheck` or '
+echo '!!! `make installcheck-tests TESTS="password jsonb"` in the second terminal'
 echo '!!!'
 
-echo 'PostgreSQL will start in:'
-echo -n '5...'
-sleep 1
-echo -n '4...'
-sleep 1
-echo -n '3...'
-sleep 1
-echo -n '2...'
-sleep 1
-echo -n '1...'
-sleep 1
-echo 'NOW'
-
 #  --log-file=$HOME/work/postgrespro/postgresql-valgrind/%p.log \
+#  --vgdb=yes --vgdb-error=1 \
 valgrind --leak-check=full --track-origins=yes --gen-suppressions=all \
-  --vgdb=yes --vgdb-error=1 \
   --show-leak-kinds=all --read-var-info=yes \
   --suppressions=src/tools/valgrind.supp --time-stamp=yes \
   --trace-children=yes postgres -D \
