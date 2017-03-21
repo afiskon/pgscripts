@@ -52,9 +52,11 @@ echo -n '1...'
 sleep 1
 echo 'NOW'
 
+#  --log-file=$HOME/work/postgrespro/postgresql-valgrind/%p.log \
 valgrind --leak-check=full --track-origins=yes --gen-suppressions=all \
+  --vgdb=yes --vgdb-error=1 \
+  --show-leak-kinds=all --read-var-info=yes \
   --suppressions=src/tools/valgrind.supp --time-stamp=yes \
-  --log-file=$HOME/work/postgrespro/postgresql-valgrind/%p.log \
   --trace-children=yes postgres -D \
   $HOME/work/postgrespro/postgresql-install/data-master \
   2>&1 | tee $HOME/work/postgrespro/postgresql-valgrind/postmaster.log
