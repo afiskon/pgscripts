@@ -42,10 +42,12 @@ echo '!!!'
 echo '!!! And make sure USE_VALGRIND is defined in src/include/pg_config_manual.h'
 echo '!!!'
 
-#  --log-file=$HOME/work/postgrespro/postgresql-valgrind/%p.log \
 #  --vgdb=yes --vgdb-error=1 \
-valgrind --leak-check=full --track-origins=yes --gen-suppressions=all \
-  --show-leak-kinds=all --read-var-info=yes \
+
+# No point to check for memory leaks, Valgrind doesn't understand MemoryContexts and stuff
+valgrind --leak-check=no --track-origins=yes --gen-suppressions=all \
+  --read-var-info=yes \
+  --log-file=$HOME/work/postgrespro/postgresql-valgrind/%p.log \
   --suppressions=src/tools/valgrind.supp --time-stamp=yes \
   --trace-children=yes postgres -D \
   $HOME/work/postgrespro/postgresql-install/data-master \
