@@ -14,7 +14,7 @@ Kelvich's][stas] code.
 * **install.sh** - same as single-install.sh but configures streaming replication as
   well.
 * **kill.sh** - terminates all processes related to PostgreSQL.
-* **code-coverage.sh** - genereates code coverage report.
+* **code-coverage.sh** - genereates a code coverage report.
 * **static-analysis.sh** - runs Clang Static Analyzer.
 * **valgrind.sh** - starts PostgreSQL under Valgrind.
 
