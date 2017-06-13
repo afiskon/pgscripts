@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # based on full-build.sh and http://eax.me/c-code-coverage/
 
