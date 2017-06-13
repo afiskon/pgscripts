@@ -1,7 +1,7 @@
 # pgscripts
 
-A few scripts related to PostgreSQL development. Originally based on @kelvich's
-code.
+A few scripts related to PostgreSQL development. Originally based on [Stas
+Kelvich's][stas] code.
 
 * quick-build.sh - runs `configure` with some common flags, then runs `make`
   and `make check`. Code is compiled with -O0. $PGINSTALL is used as a --prefix.
@@ -32,3 +32,4 @@ Typical usage:
 make installcheck
 ```
 
+[stas]: https://github.com/kelvich
