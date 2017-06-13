@@ -2,7 +2,12 @@
 
 set -e
 
-M=/home/eax/work/postgrespro/postgresql-install
+if [[ -z $PGINSTALL ]]; then
+  echo "ERROR: \$PGINSTALL environment variable is empty"
+  exit 1
+fi
+
+M=$PGINSTALL
 U=`whoami`
 
 pkill -9 postgres || true
@@ -25,7 +30,8 @@ echo "wal_keep_segments = 64" >> $M/data-master/postgresql.conf
 echo "listen_addresses = '*'" >> $M/data-master/postgresql.conf
 echo "hot_standby = on" >> $M/data-master/postgresql.conf
 echo "log_statement = all" >> $M/data-master/postgresql.conf
-#echo "shared_buffers = 1GB" >> $M/data-master/postgresql.conf
+echo "max_locks_per_transaction = 256" >> $M/data-master/postgresql.conf
+echo "shared_buffers = 1GB" >> $M/data-master/postgresql.conf
 #echo "fsync = off" >> $M/data-master/postgresql.conf
 #echo "autovacuum = off" >> $M/data-master/postgresql.conf
 

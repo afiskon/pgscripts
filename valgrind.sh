@@ -2,7 +2,15 @@
 
 set -e
 
-M=$HOME/work/postgrespro/postgresql-install
+if [[ -z $PGINSTALL ]]; then
+  echo "ERROR: \$PGINSTALL environment variable is empty"
+  exit 1
+fi
+
+rm -r $TMPDIR/postgresql-valgrind || true
+mkdir $TMPDIR/postgresql-valgrind
+
+M=$PGINSTALL
 U=`whoami`
 
 pkill -9 postgres || true
@@ -33,8 +41,6 @@ echo "host replication $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
 echo "host all $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
 echo '' > $M/data-master/logfile
 
-rm $HOME/work/postgrespro/postgresql-valgrind/*.log || true
-
 echo '!!!'
 echo '!!! Hint: after PostgreSQL will start run `make installcheck` or '
 echo '!!! `make installcheck-tests TESTS="password jsonb"` in the second terminal'
@@ -47,9 +53,9 @@ echo '!!!'
 # No point to check for memory leaks, Valgrind doesn't understand MemoryContexts and stuff
 valgrind --leak-check=no --track-origins=yes --gen-suppressions=all \
   --read-var-info=yes \
-  --log-file=$HOME/work/postgrespro/postgresql-valgrind/%p.log \
+  --log-file=$TMPDIR/postgresql-valgrind/%p.log \
   --suppressions=src/tools/valgrind.supp --time-stamp=yes \
   --trace-children=yes postgres -D \
-  $HOME/work/postgrespro/postgresql-install/data-master \
-  2>&1 | tee $HOME/work/postgrespro/postgresql-valgrind/postmaster.log
+  $PGINSTALL/data-master \
+  2>&1 | tee $TMPDIR/postgresql-valgrind/postmaster.log
 

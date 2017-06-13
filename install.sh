@@ -1,8 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -e
 
-M=/home/eax/work/postgrespro/postgresql-install
+if [[ -z $PGINSTALL ]]; then
+  echo "ERROR: \$PGINSTALL environment variable is empty"
+  exit 1
+fi
+
+M=$PGINSTALL
 U=`whoami`
 
 pkill -9 postgres || true

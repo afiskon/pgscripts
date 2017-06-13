@@ -4,14 +4,22 @@
 
 set -e
 
-make distclean || true
-rm -r ~/temp/cov-report || true
-mkdir ~/temp/cov-report
+if [[ -z $PGINSTALL ]]; then
+  echo "ERROR: \$PGINSTALL environment variable is empty"
+  exit 1
+fi
 
-CFLAGS="-O0" ./configure --prefix=/home/eax/work/postgrespro/postgresql-install \
+make distclean || true
+rm -r $TMPDIR/cov-report || true
+mkdir $TMPDIR/cov-report
+
+# to build with python2 instead of python3
+export PYTHON=/usr/bin/python2
+
+CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
 	--enable-coverage \
     --with-python --enable-tap-tests --enable-cassert --enable-debug \
-    --enable-nls --with-openssl --with-perl --with-tcl --with-gssapi \
+    --enable-nls --with-perl --with-tcl --with-gssapi \
     --with-libxml --with-libxslt --with-ldap
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
@@ -23,4 +31,4 @@ echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 make check-world
 # make check
 make coverage
-find ./ -type f -iname '*.info' | xargs genhtml -o ~/temp/cov-report/
+find ./ -type f -iname '*.info' | xargs genhtml -o $TMPDIR/cov-report/
