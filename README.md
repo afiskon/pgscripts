@@ -21,6 +21,7 @@ Kelvich's][stas] code.
 Used environment variables:
 
 * **$PGINSTALL** - where to install PostgreSQL.
+* **$PATH** - don't forget to add $PGINSTALL/bin here.
 * **$TMPDIR** - a directory for saving temporary files.
 
 Typical usage:
