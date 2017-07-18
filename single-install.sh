@@ -36,6 +36,7 @@ echo "shared_buffers = 1GB" >> $M/data-master/postgresql.conf
 
 echo "host replication $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
 echo "host all $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
+echo "host all all 10.128.0.0/16 trust" >> $M/data-master/pg_hba.conf
 
 echo '' > $M/data-master/logfile
 
