@@ -16,11 +16,9 @@ mkdir $TMPDIR/cov-report
 # to build with python2 instead of python3
 export PYTHON=/usr/bin/python2
 
-# tests for --with-libxml / --with-libxslt are broken on master -- 2017-07-17
-# see http://afiskon.ru/s/45/7af150f1e3_regression.diffs.txt
-
 CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
 	--enable-coverage \
+    --with-libxml --with-libxslt \
     --with-python --enable-tap-tests --enable-cassert --enable-debug \
     --enable-nls --with-perl --with-tcl --with-gssapi --with-ldap
 
