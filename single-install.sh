@@ -23,7 +23,8 @@ echo "listen_addresses = '127.0.0.1'" >> $M/data-master/postgresql.conf
 echo "max_prepared_transactions = 100" >> $M/data-master/postgresql.conf
 echo "wal_level = hot_standby" >> $M/data-master/postgresql.conf
 echo "wal_keep_segments = 128" >> $M/data-master/postgresql.conf
-echo "max_connections = 10" >> $M/data-master/postgresql.conf
+# keep max_connections large enough or `make installcheck-world` may fail during `prep` test
+echo "max_connections = 100" >> $M/data-master/postgresql.conf
 echo "wal_log_hints = on" >> $M/data-master/postgresql.conf
 echo "max_wal_senders = 8" >> $M/data-master/postgresql.conf
 echo "wal_keep_segments = 64" >> $M/data-master/postgresql.conf
