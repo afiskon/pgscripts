@@ -22,7 +22,8 @@ CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
-make -s -j4 world
+# make -s -j4 world
+make -s -j4
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 

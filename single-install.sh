@@ -22,7 +22,7 @@ $M/bin/initdb -D $M/data-master
 
 echo "listen_addresses = '127.0.0.1'" >> $M/data-master/postgresql.conf
 echo "max_prepared_transactions = 100" >> $M/data-master/postgresql.conf
-echo "wal_level = hot_standby" >> $M/data-master/postgresql.conf
+echo "wal_level = logical" >> $M/data-master/postgresql.conf
 echo "wal_keep_segments = 128" >> $M/data-master/postgresql.conf
 echo "max_connections = 100" >> $M/data-master/postgresql.conf
 echo "wal_log_hints = on" >> $M/data-master/postgresql.conf
