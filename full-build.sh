@@ -13,7 +13,9 @@ make distclean || true
 # see https://postgr.es/m/20170329.142112.251668726.horiguchi.kyotaro%40lab.ntt.co.jp
 
 # to build with python2 instead of python3
-export PYTHON=/usr/bin/python2
+# export PYTHON=/usr/bin/python2
+
+export PYTHON=/usr/bin/python
 
 CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
     --with-libxml --with-libxslt \
@@ -26,4 +28,4 @@ make -s -j4 world
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
-make check-world
+make -j4 check-world

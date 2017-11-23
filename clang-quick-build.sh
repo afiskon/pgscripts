@@ -26,4 +26,4 @@ make -s -j4
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
-make check
+make -j4 check
