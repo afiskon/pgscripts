@@ -28,4 +28,5 @@ make -s -j4 world
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
-make -j4 check-world
+# make -j4 check-world
+make check-world
