@@ -27,10 +27,14 @@ Used environment variables:
 Typical usage:
 
 ```
-./quick-build.sh
-# or ./full-build.sh
-./install.sh
-make installcheck
+./full-build.sh
+./single-install.sh
+make installcheck-world
 ```
+
+**Note:** `make installcheck` or `make installcheck-world` don't pass if there
+is a replication configured with master and replica on the same machine. This is
+a known issue. Thus if you want to run `make installcheck` use
+`./single-install.sh` instead of `./install.sh`.
 
 [stas]: https://github.com/kelvich
