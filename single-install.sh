@@ -30,13 +30,16 @@ echo "max_wal_senders = 8" >> $M/data-master/postgresql.conf
 echo "wal_keep_segments = 64" >> $M/data-master/postgresql.conf
 echo "listen_addresses = '*'" >> $M/data-master/postgresql.conf
 echo "hot_standby = on" >> $M/data-master/postgresql.conf
-# echo "log_statement = all" >> $M/data-master/postgresql.conf
 echo "max_locks_per_transaction = 256" >> $M/data-master/postgresql.conf
 echo "shared_buffers = 1GB" >> $M/data-master/postgresql.conf
-echo "password_encryption = scram-sha-256" >> $M/data-master/postgresql.conf
 echo "synchronous_commit = off" >> $M/data-master/postgresql.conf # for benchmarks
-#echo "fsync = off" >> $M/data-master/postgresql.conf
-#echo "autovacuum = off" >> $M/data-master/postgresql.conf
+# echo "log_statement = all" >> $M/data-master/postgresql.conf
+# echo "password_encryption = scram-sha-256" >> $M/data-master/postgresql.conf
+# echo "fsync = off" >> $M/data-master/postgresql.conf
+# echo "autovacuum = off" >> $M/data-master/postgresql.conf
+
+# for PGPRO EE:
+# echo "shared_preload_libraries='pgpro_scheduler,pg_pathman,shared_ispell'" >> $M/data-master/postgresql.conf
 
 echo "host replication $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
 echo "host all $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
