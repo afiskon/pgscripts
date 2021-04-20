@@ -21,11 +21,11 @@ CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
-make -s -j4
+make -s -j
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
 # Run `make install` before `make check`
 # See https://www.postgresql.org/message-id/flat/CAJ7c6TN6QONSsM3%3DGPdp2DtPgFpL1cY%2BtxVwfNREWuYX9V1P%3DQ%40mail.gmail.com
 make install 
-make -j4 check
+make -j check
