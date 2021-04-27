@@ -1,0 +1,2 @@
+git diff --no-prefix > v1-0001-some-description.patch
+patch -p0 < v1-0001-some-description.patch
