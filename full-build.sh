@@ -28,7 +28,9 @@ echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 # Run `make install` before `make check`
 # See https://www.postgresql.org/message-id/flat/CAJ7c6TN6QONSsM3%3DGPdp2DtPgFpL1cY%2BtxVwfNREWuYX9V1P%3DQ%40mail.gmail.com
 make install
-make -j4 check
+# don't use -j here, 0 will be returned even in case of errors!
+make check
 
 make install-world
-make -j4 check-world
+# don't use -j here, 0 will be returned even in case of errors!
+make check-world
