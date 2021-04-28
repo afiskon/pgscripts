@@ -1,2 +1,13 @@
 git diff --no-prefix > v1-0001-some-description.patch
 patch -p0 < v1-0001-some-description.patch
+
+OR:
+
+git apply --ignore-space-change --ignore-whitespace v1-0001-some-description.patch
+
+OR:
+
+dos2unix v1-0001-some-description.patch
+git apply v1-0001-some-description.patch
+
+./full-build.sh && single-install.sh && make installcheck-world
