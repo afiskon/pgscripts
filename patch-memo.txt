@@ -11,3 +11,4 @@ dos2unix v1-0001-some-description.patch
 git apply v1-0001-some-description.patch
 
 ./full-build.sh && ./single-install.sh && make installcheck-world
+open ~/pginstall/share/doc/postgresql/html/index.html
