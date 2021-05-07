@@ -13,7 +13,7 @@ export PYTHON=/usr/bin/python
 
 CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
     --with-python --enable-tap-tests --enable-cassert --enable-debug \
-    --with-perl --with-tcl
+    --with-perl --with-tcl --with-openssl
 #    --with-libxml --with-libxslt --enable-nls \
 
 # This works but generates a lot of warnings on MacOS:
