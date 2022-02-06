@@ -20,7 +20,7 @@ CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
 	--enable-coverage \
     --with-libxml --with-libxslt \
     --with-python --enable-tap-tests --enable-cassert --enable-debug \
-    --enable-nls --with-perl --with-tcl --with-gssapi --with-ldap
+    --enable-nls --with-tcl --with-gssapi --with-ldap
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
