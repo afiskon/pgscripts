@@ -19,7 +19,7 @@ export PYTHON=/usr/bin/python2
 CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
 	--enable-coverage \
     --with-libxml --with-libxslt \
-    --with-python --enable-tap-tests --enable-cassert --enable-debug \
+    --enable-tap-tests --enable-cassert --enable-debug \
     --enable-nls --with-tcl --with-gssapi --with-ldap
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'

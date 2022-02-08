@@ -16,9 +16,9 @@ export ASAN_OPTIONS="detect_odr_violation=0 suppressions=/Users/eax/projects/c/t
 
 ./configure --prefix=$PGINSTALL \
     --with-includes=/usr/local/include --with-libraries=/usr/local/lib \
-    --with-python --enable-tap-tests --enable-cassert --enable-debug \
+    --enable-tap-tests --enable-cassert --enable-debug \
     --with-tcl --with-llvm --with-openssl
-#   --with-perl --with-libxml --with-libxslt --enable-nls \
+#   --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
 
 # This works but generates a lot of warnings on MacOS:
 # --with-gssapi --with-ldap

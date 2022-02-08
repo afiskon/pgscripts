@@ -12,9 +12,9 @@ make distclean || true
 export PYTHON=/usr/bin/python
 
 CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
-    --with-python --enable-tap-tests --enable-cassert --enable-debug \
+    --enable-tap-tests --enable-cassert --enable-debug \
     --with-tcl --with-openssl
-#   --with-perl --with-libxml --with-libxslt --enable-nls \
+#   --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
 
 # This works but generates a lot of warnings on MacOS:
 # --with-gssapi --with-ldap
