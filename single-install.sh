@@ -23,14 +23,14 @@ $M/bin/initdb -D $M/data-master
 echo "listen_addresses = '127.0.0.1'" >> $M/data-master/postgresql.conf
 echo "max_prepared_transactions = 100" >> $M/data-master/postgresql.conf
 echo "wal_level = logical" >> $M/data-master/postgresql.conf
-echo "max_connections = 100" >> $M/data-master/postgresql.conf
+echo "max_connections = 10" >> $M/data-master/postgresql.conf
 echo "wal_log_hints = on" >> $M/data-master/postgresql.conf
 echo "max_wal_senders = 8" >> $M/data-master/postgresql.conf
 echo "listen_addresses = '*'" >> $M/data-master/postgresql.conf
 echo "hot_standby = on" >> $M/data-master/postgresql.conf
 echo "max_locks_per_transaction = 256" >> $M/data-master/postgresql.conf
-echo "shared_buffers = 1GB" >> $M/data-master/postgresql.conf
-echo "synchronous_commit = off" >> $M/data-master/postgresql.conf # for benchmarks
+echo "shared_buffers = 512MB" >> $M/data-master/postgresql.conf
+# echo "synchronous_commit = off" >> $M/data-master/postgresql.conf # for benchmarks
 # echo "log_statement = all" >> $M/data-master/postgresql.conf
 # echo "password_encryption = scram-sha-256" >> $M/data-master/postgresql.conf
 # echo "fsync = off" >> $M/data-master/postgresql.conf

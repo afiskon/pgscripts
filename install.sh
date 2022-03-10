@@ -24,14 +24,14 @@ echo "wal_consistency_checking = 'all'" >> $M/data-master/postgresql.conf
 echo "max_prepared_transactions = 100" >> $M/data-master/postgresql.conf
 echo "wal_level = logical" >> $M/data-master/postgresql.conf
 # keep max_connections large enough or `make installcheck-world` may fail during `prep` test
-echo "max_connections = 100" >> $M/data-master/postgresql.conf
+echo "max_connections = 10" >> $M/data-master/postgresql.conf
 echo "wal_log_hints = on" >> $M/data-master/postgresql.conf
 echo "max_wal_senders = 8" >> $M/data-master/postgresql.conf
 echo "listen_addresses = '*'" >> $M/data-master/postgresql.conf
 echo "hot_standby = on" >> $M/data-master/postgresql.conf
 echo "log_statement = all" >> $M/data-master/postgresql.conf
 echo "max_locks_per_transaction = 256" >> $M/data-master/postgresql.conf
-#echo "shared_buffers = 1GB" >> $M/data-master/postgresql.conf
+#echo "shared_buffers = 512MB" >> $M/data-master/postgresql.conf
 #echo "fsync = off" >> $M/data-master/postgresql.conf
 #echo "autovacuum = off" >> $M/data-master/postgresql.conf
 
