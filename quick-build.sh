@@ -10,8 +10,11 @@ fi
 make distclean || true
 
 export PYTHON=/usr/bin/python
+# for FreeBSD
+export CFLAGS="-O0 -I/usr/local/include"
+export LDFLAGS="-L/usr/local/lib"
 
-CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
+./configure --prefix=$PGINSTALL \
     --enable-tap-tests --enable-cassert --enable-debug \
     --with-tcl --with-openssl
 #   --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
