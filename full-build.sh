@@ -10,9 +10,15 @@ fi
 make distclean || true
 
 export PYTHON=/usr/bin/python
-# for FreeBSD
-export CFLAGS="-O0 -I/usr/local/include"
-export LDFLAGS="-L/usr/local/lib"
+
+unamestr=$(uname)
+if [[ "$unamestr" == 'FreeBSD' ]]; then
+	export CFLAGS="-O0 -I/usr/local/include"
+	export LDFLAGS="-L/usr/local/lib"
+else
+	export CFLAGS="-O0"
+fi
+
 
 ./configure --prefix=$PGINSTALL \
     --enable-tap-tests --enable-cassert --enable-debug \
