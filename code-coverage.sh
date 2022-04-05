@@ -12,8 +12,7 @@ if [[ -z $PGINSTALL ]]; then
 fi
 
 make distclean || true
-rm -r $TMPDIR/cov-report || true
-mkdir $TMPDIR/cov-report
+make coverage-clean || true
 
 CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
     --enable-coverage \
@@ -28,6 +27,6 @@ make -s -j4
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
 make check-world
-# make check
-make coverage
-find ./ -type f -iname '*.info' | xargs genhtml -o $TMPDIR/cov-report/
+make coverage-html
+
+echo "DONE! See coverage/index.html"
