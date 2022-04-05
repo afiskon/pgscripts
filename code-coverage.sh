@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 # based on full-build.sh and http://eax.me/c-code-coverage/
+# see also https://www.postgresql.org/docs/current/regress-coverage.html
+# note that the script works only with GCC stack
 
 set -e
 
@@ -13,14 +15,11 @@ make distclean || true
 rm -r $TMPDIR/cov-report || true
 mkdir $TMPDIR/cov-report
 
-# to build with python2 instead of python3
-export PYTHON=/usr/bin/python2
-
 CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
-	--enable-coverage \
-    --with-libxml --with-libxslt \
+    --enable-coverage \
     --enable-tap-tests --enable-cassert --enable-debug \
-    --enable-nls --with-tcl --with-gssapi --with-ldap
+    --with-ldap
+#   --enable-nls --with-tcl --with-libxml --with-libxslt \
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
