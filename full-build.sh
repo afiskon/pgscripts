@@ -19,7 +19,6 @@ else
 	export CFLAGS="-O0"
 fi
 
-
 ./configure --prefix=$PGINSTALL \
     --enable-tap-tests --enable-cassert --enable-debug \
     --with-tcl --with-openssl
