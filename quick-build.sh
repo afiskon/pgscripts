@@ -21,8 +21,8 @@ fi
 
 ./configure --prefix=$PGINSTALL \
     --enable-tap-tests --enable-cassert --enable-debug \
-    --with-tcl --with-openssl
-#   --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
+    --with-openssl
+#   --with-tcl --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
 
 # This works but generates a lot of warnings on MacOS:
 # --with-gssapi --with-ldap
