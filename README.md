@@ -23,7 +23,7 @@ git clone https://github.com/afiskon/pgscripts.git
 cd pgscripts
 ./full-build.sh && ./single-install.sh && make installcheck-world
 # or:
-./quick-build.sh && ./single-install.sh && make installcheck-world
+./quick-build.sh && ./single-install.sh && make installcheck
 ```
 
 List of the scripts:
