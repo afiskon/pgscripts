@@ -1,0 +1,9 @@
+GNUmakefile
+Makefile
+config.log
+config.status
+config/
+contrib/
+doc/
+src/
+tmp_install/
