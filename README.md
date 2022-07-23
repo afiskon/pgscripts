@@ -9,6 +9,17 @@ Used environment variables:
 * **$PATH** - don't forget to add $PGINSTALL/bin here.
 * **$TMPDIR** - a directory for saving temporary files.
 
+In order to install PostgreSQL dependencies run:
+
+```
+# for basic build
+sudo apt install gcc make flex bison libreadline-dev zlib1g-dev
+
+# to build the documentation as well
+sudo apt install docbook docbook-dsssl docbook-xsl libxml2-utils \
+  openjade opensp xsltproc
+```
+
 Typical usage:
 
 ```
