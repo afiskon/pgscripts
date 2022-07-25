@@ -50,7 +50,8 @@ List of the scripts:
   postgresql.conf.
 * **install.sh** - same as single-install.sh but configures streaming replication as
   well.
-* **kill.sh** - terminates all processes related to PostgreSQL.
+* **start.sh / stop.sh** - start/stop PostgreSQL using `pg_ctl`.
+* **kill.sh** - terminates all processes related to PostgreSQL with `pkill`.
 * **code-coverage.sh** - genereates a code coverage report.
 * **static-analysis.sh** - runs Clang Static Analyzer.
 * **valgrind.sh** - starts PostgreSQL under Valgrind.
