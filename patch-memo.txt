@@ -1,3 +1,10 @@
+Ideally:
+
+git format-patch origin/master -v 42
+git am < ~/Downloads/v42-0001-foo-bar.patch
+
+Less than ideal:
+
 git diff --no-prefix > v1-0001-some-description.patch
 patch -p0 < v1-0001-some-description.patch
 
