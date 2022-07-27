@@ -19,6 +19,9 @@ sudo apt install gcc make flex bison libreadline-dev zlib1g-dev \
 # to build the documentation as well
 sudo apt install docbook docbook-dsssl docbook-xsl libxml2-utils \
   openjade opensp xsltproc
+
+# for code-coverage.sh
+sudo apt install lcov
 ```
 
 Typical usage:
