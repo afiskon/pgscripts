@@ -14,11 +14,11 @@ fi
 make distclean || true
 make coverage-clean || true
 
-CFLAGS="-O0" ./configure --prefix=$PGINSTALL \
+CFLAGS="-O0" ../postgresql/configure --prefix=$PGINSTALL \
     --enable-coverage \
     --enable-tap-tests --enable-cassert --enable-debug \
-    --with-ldap
-#   --enable-nls --with-tcl --with-libxml --with-libxslt \
+    --with-openssl
+#   --with-tcl --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 

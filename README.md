@@ -52,7 +52,7 @@ List of the scripts:
   well.
 * **start.sh / stop.sh** - start/stop PostgreSQL using `pg_ctl`.
 * **kill.sh** - terminates all processes related to PostgreSQL with `pkill`.
-* **code-coverage.sh** - genereates a code coverage report.
+* **code-coverage.sh** - genereates a code coverage report (works only with GCC stack!).
 * **static-analysis.sh** - runs Clang Static Analyzer.
 * **valgrind.sh** - starts PostgreSQL under Valgrind.
 
