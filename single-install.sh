@@ -15,8 +15,8 @@ pkill -9 postgres || true
 rm -rf $M || true
 mkdir $M
 
-# make install
-make install-world
+make install
+# make install-world
 
 $M/bin/initdb --data-checksums -D $M/data-master
 
