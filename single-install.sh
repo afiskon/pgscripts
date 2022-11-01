@@ -15,8 +15,7 @@ pkill -9 postgres || true
 rm -rf $M || true
 mkdir $M
 
-make install
-# make install-world
+make install-world
 
 $M/bin/initdb --data-checksums -D $M/data-master
 
@@ -52,4 +51,4 @@ $M/bin/pg_ctl -w -D $M/data-master -l $M/data-master/logfile start
 $M/bin/createdb $U
 $M/bin/psql -c "create table test(k int primary key, v text);"
 
-
+echo 'DONE!'

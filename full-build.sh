@@ -42,3 +42,5 @@ make check
 make install-world
 # don't use -j here, 0 will be returned even in case of errors!
 make check-world
+
+echo 'DONE!'

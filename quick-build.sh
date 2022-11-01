@@ -38,3 +38,5 @@ echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 make install 
 # don't use -j here, 0 will be returned even in case of errors!
 make check
+
+echo 'DONE!'
