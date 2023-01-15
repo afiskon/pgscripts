@@ -15,7 +15,7 @@ pkill -9 postgres || true
 rm -rf $M || true
 mkdir $M
 
-make install
+meson install -C ../postgresql/build
 
 $M/bin/initdb --data-checksums -D $M/data-master
 
