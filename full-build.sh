@@ -22,7 +22,7 @@ else
 	export CFLAGS="-O0"
 fi
 
-../postgresql/configure --prefix=$PGINSTALL \
+PG_TEST_EXTRA="kerberos ldap ssl" ../postgresql/configure --prefix=$PGINSTALL \
     --enable-tap-tests --enable-cassert --enable-debug \
     --with-openssl
 #   --with-tcl --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
