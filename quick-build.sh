@@ -15,12 +15,12 @@ unamestr=$(uname)
 if [[ "$unamestr" == 'FreeBSD' ]]; then
 	export CFLAGS="-O0 -I/usr/local/include"
 	export LDFLAGS="-L/usr/local/lib"
-elif [[ "$unamestr" == 'Darwin' ]]; then
+#elif [[ "$unamestr" == 'Darwin' ]]; then
 	# see https://postgr.es/m/CAJ7c6TO8Aro2nxg%3DEQsVGiSDe-TstP4EsSvDHd7DSRsP40PgGA%40mail.gmail.com
-	export SGML_CATALOG_FILES=/usr/local/etc/xml/catalog
-	export XMLLINT="xmllint --catalogs"
-	export XSLTPROC="xsltproc --catalogs"
-	export CFLAGS="-O0"
+#	export SGML_CATALOG_FILES=/usr/local/etc/xml/catalog
+#	export XMLLINT="xmllint --catalogs"
+#	export XSLTPROC="xsltproc --catalogs"
+#	export CFLAGS="-O0"
 else
 	export CFLAGS="-O0"
 fi
