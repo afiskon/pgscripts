@@ -10,6 +10,7 @@ fi
 make distclean || true
 
 export PYTHON=/usr/bin/python
+export PG_TEST_EXTRA="kerberos ldap ssl"
 
 unamestr=$(uname)
 if [[ "$unamestr" == 'FreeBSD' ]]; then
@@ -22,7 +23,7 @@ else
 	export CFLAGS="-O0"
 fi
 
-PG_TEST_EXTRA="kerberos ldap ssl" ../postgresql/configure --prefix=$PGINSTALL \
+../postgresql/configure --prefix=$PGINSTALL \
     --enable-tap-tests --enable-cassert --enable-debug \
     --with-openssl
 #   --with-tcl --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
