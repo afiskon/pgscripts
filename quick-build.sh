@@ -18,6 +18,7 @@ if [[ "$unamestr" == 'FreeBSD' ]]; then
 elif [[ "$unamestr" == 'Darwin' ]]; then
 	# see https://postgr.es/m/CAJ7c6TO8Aro2nxg%3DEQsVGiSDe-TstP4EsSvDHd7DSRsP40PgGA%40mail.gmail.com
 	export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+	export CFLAGS="-O0"
 else
 	export CFLAGS="-O0"
 fi
