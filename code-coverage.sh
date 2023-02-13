@@ -17,12 +17,12 @@ make coverage-clean || true
 CFLAGS="-O0" ../postgresql/configure --prefix=$PGINSTALL \
     --enable-coverage \
     --enable-tap-tests --enable-cassert --enable-debug \
-    --with-openssl
-#   --with-tcl --with-python --with-perl --with-libxml --with-libxslt --enable-nls \
+    --with-openssl --with-libxml --with-libxslt
+#   --with-tcl --with-python --with-perl --enable-nls \
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
-make -s -j4
+make -s -j4 world
 
 echo '-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'
 
