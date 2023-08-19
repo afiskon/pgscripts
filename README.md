@@ -13,8 +13,8 @@ In order to install PostgreSQL dependencies run:
 
 ```
 # for basic build
-sudo apt install gcc make flex bison libreadline-dev zlib1g-dev \
-  libssl-dev libxml2-dev libxslt1-dev libipc-run-perl
+sudo apt install gcc make flex bison pkg-config libreadline-dev \
+  zlib1g-dev libssl-dev libxml2-dev libxslt1-dev libipc-run-perl
 
 # to build the documentation as well
 sudo apt install docbook docbook-dsssl docbook-xsl libxml2-utils \
