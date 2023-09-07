@@ -13,6 +13,7 @@ export PYTHON=/usr/bin/python
 export PG_TEST_EXTRA="kerberos ldap ssl"
 
 unamestr=$(uname)
+extra_flags=""
 if [[ "$unamestr" == 'FreeBSD' ]]; then
 	export CFLAGS="-O0 -I/usr/local/include"
 	export LDFLAGS="-L/usr/local/lib"
@@ -20,13 +21,14 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 	# see https://postgr.es/m/CAJ7c6TO8Aro2nxg%3DEQsVGiSDe-TstP4EsSvDHd7DSRsP40PgGA%40mail.gmail.com
 	export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 	export CFLAGS="-O0"
+    extra_flags="--without-icu"
 else
 	export CFLAGS="-O0"
 fi
 
 ../postgresql/configure --prefix=$PGINSTALL \
     --enable-tap-tests --enable-cassert --enable-debug \
-    --with-openssl --with-libxml --with-libxslt
+    --with-openssl --with-libxml --with-libxslt $extra_flags
 #   --with-tcl --with-python --with-perl --enable-nls \
 
 # This works but generates a lot of warnings on MacOS:
