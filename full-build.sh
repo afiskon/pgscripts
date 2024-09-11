@@ -28,8 +28,8 @@ fi
 
 ../postgresql/configure --prefix=$PGINSTALL \
     --enable-tap-tests --enable-cassert --enable-debug \
-    --with-openssl --with-libxml --with-libxslt $extra_flags
-#   --with-tcl --with-python --with-perl --enable-nls \
+    --with-libxml --with-libxslt $extra_flags
+#   --with-openssl --with-tcl --with-python --with-perl --enable-nls \
 
 # This works but generates a lot of warnings on MacOS:
 # --with-gssapi --with-ldap
