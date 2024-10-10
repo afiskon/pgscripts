@@ -14,7 +14,8 @@ In order to install PostgreSQL dependencies run:
 ```
 # for basic build
 sudo apt install gcc make flex bison pkg-config libreadline-dev \
-  zlib1g-dev libssl-dev libxml2-dev libxslt1-dev libipc-run-perl
+  zlib1g-dev libssl-dev libxml2-dev libxslt1-dev libipc-run-perl \
+  meson ninja-build
 
 # to build the documentation as well
 sudo apt install docbook docbook-dsssl docbook-xsl libxml2-utils \
@@ -39,6 +40,21 @@ cd pgscripts
 ./full-build.sh && ./single-install.sh && make installcheck-world
 # or:
 ./quick-build.sh && ./single-install.sh && make installcheck
+```
+
+Building with Meson:
+
+```
+git clean -dfx
+meson setup --buildtype debug \
+  -DPG_TEST_EXTRA="kerberos ldap ssl" \
+  -Dldap=disabled -Dssl=openssl \
+  -Dcassert=true -Dtap_tests=enabled \
+  -Dprefix=/home/eax/pginstall build
+ninja -C build
+ninja -C build docs
+meson test -C build
+../pgscripts/single-install-meson.sh
 ```
 
 List of the scripts:
