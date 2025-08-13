@@ -39,9 +39,6 @@ echo "timescaledb.max_background_workers = 16" >> $M/data-master/postgresql.conf
 # echo "fsync = off" >> $M/data-master/postgresql.conf
 # echo "autovacuum = off" >> $M/data-master/postgresql.conf
 
-# for PGPRO EE:
-# echo "shared_preload_libraries='pgpro_scheduler,pg_pathman,shared_ispell'" >> $M/data-master/postgresql.conf
-
 echo "host replication $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
 echo "host all $U 127.0.0.1/24 trust" >> $M/data-master/pg_hba.conf
 
