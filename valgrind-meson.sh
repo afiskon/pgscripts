@@ -46,6 +46,7 @@ echo "!!!     $M/bin/pg_ctl -w -D $PGINSTALL/data stop"
 echo "!!!     grep -r 'ERROR SUMMARY' /tmp/valgrind/ | grep -v 'SUMMARY: 0 errors'"
 echo '!!!'
 echo '!!! ... in the second terminal.'
+echo '!!!'
 
 #  --vgdb=yes --vgdb-error=1 \
 
