@@ -66,7 +66,7 @@ List of the scripts:
 * **full-build.sh** - same as quick-build.sh, but `make check-world` is executed
   intead of `make check`.
 * **single-install.sh** - installs PostgreSQL to $PGINSTALL and runs it with custom
-  postgresql.conf.
+* **single-install-meson.sh** - same for Meson build system.
 * **install.sh** - same as single-install.sh but configures streaming replication as
   well.
 * **start.sh / stop.sh** - start/stop PostgreSQL using `pg_ctl`.
@@ -74,6 +74,7 @@ List of the scripts:
 * **code-coverage.sh** - genereates a code coverage report (works only with GCC stack!).
 * **static-analysis.sh** - runs Clang Static Analyzer.
 * **valgrind.sh** - starts PostgreSQL under Valgrind.
+* **valgrind-meson.sh** - same for Meson build system.
 
 **Note:** `make installcheck` or `make installcheck-world` don't pass if there
 is a replication configured with master and replica on the same machine. This is
