@@ -65,7 +65,7 @@ List of the scripts:
   GCC.
 * **full-build.sh** - same as quick-build.sh, but `make check-world` is executed
   intead of `make check`.
-* **single-install.sh** - installs PostgreSQL to $PGINSTALL and runs it with custom
+* **single-install.sh** - installs PostgreSQL to $PGINSTALL and runs it with custom config
 * **single-install-meson.sh** - same for Meson build system.
 * **install.sh** - same as single-install.sh but configures streaming replication as
   well.
