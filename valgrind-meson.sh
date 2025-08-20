@@ -43,7 +43,8 @@ echo '!!! After PostgreSQL will start run:'
 echo '!!!'
 echo '!!!     meson test -C build --setup running --suite regress-running --timeout-multiplier 0'
 echo "!!!     $M/bin/pg_ctl -w -D $PGINSTALL/data stop"
-echo "!!!     grep -r 'are definitely lost' /tmp/valgrind/"
+echo "!!!     grep -r 'ERROR SUMMARY' /tmp/valgrind/ | grep -v 'SUMMARY: 0 errors'"
+echo "!!!     # Alternatively: grep -r 'are definitely lost' /tmp/valgrind/"
 echo '!!!'
 echo '!!! ... in the second terminal.'
 echo '!!!'
