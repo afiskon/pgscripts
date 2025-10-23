@@ -29,7 +29,6 @@ $M/bin/initdb --data-checksums -D $M/data
 
 echo "listen_addresses = '127.0.0.1'" >> $M/data/postgresql.conf
 echo "max_prepared_transactions = 100" >> $M/data/postgresql.conf
-echo "wal_level = logical" >> $M/data/postgresql.conf
 echo "max_connections = 25" >> $M/data/postgresql.conf
 echo "wal_log_hints = on" >> $M/data/postgresql.conf
 echo "max_wal_senders = 8" >> $M/data/postgresql.conf
